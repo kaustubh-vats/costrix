@@ -46,7 +46,10 @@ function copyTemplateDir(templateDir, projectDir, appName, rootTemplateDir) {
   entries.forEach((entry) => {
     const sourcePath = path.join(templateDir, entry.name);
     const relativePath = path.relative(rootTemplateDir, sourcePath);
-    const targetPath = path.join(projectDir, relativePath);
+    const normalizedRelativePath = relativePath.replace(/\\/g, "/");
+    const outputRelativePath =
+      normalizedRelativePath === "gitignore" ? ".gitignore" : normalizedRelativePath;
+    const targetPath = path.join(projectDir, outputRelativePath);
 
     if (entry.isDirectory()) {
       fs.mkdirSync(targetPath, { recursive: true });
@@ -54,7 +57,6 @@ function copyTemplateDir(templateDir, projectDir, appName, rootTemplateDir) {
       return;
     }
 
-    const normalizedRelativePath = relativePath.replace(/\\/g, "/");
     let created = false;
     if (normalizedRelativePath === "package.json") {
       const rawContent = fs.readFileSync(sourcePath, "utf8");
@@ -65,11 +67,11 @@ function copyTemplateDir(templateDir, projectDir, appName, rootTemplateDir) {
     }
 
     if (created) {
-      logStep(`Created ${normalizedRelativePath}`);
+      logStep(`Created ${outputRelativePath}`);
       return;
     }
 
-    logWarn(`Skipped ${normalizedRelativePath} (already exists)`);
+    logWarn(`Skipped ${outputRelativePath} (already exists)`);
   });
 }
 
