@@ -11,7 +11,7 @@
     "prod": "npm run lint && npm run typecheck && npm run test:ci && webpack --mode production",
     "test": "jest",
     "test:ci": "jest --coverage",
-    "lint": "eslint . --ext .ts,.js,.cjs",
+    "lint": "eslint . --ext .ts,.js,.cjs --max-warnings=0",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

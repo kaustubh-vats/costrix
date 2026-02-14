@@ -1,6 +1,6 @@
 {
   "name": "costrix",
-  "version": "1.0.0",
+  "version": "1.0.11",
   "description": "npx initializer for a TypeScript + Webpack + Jest project",
   "bin": {
     "costrix": "./bin/costrix.js"
