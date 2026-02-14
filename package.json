@@ -1,10 +1,23 @@
 {
   "name": "costrix",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "npx initializer for a TypeScript + Webpack + Jest project",
   "bin": {
     "costrix": "./bin/costrix.js"
   },
   "type": "commonjs",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://costrix.kaustubhvats.in/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaustubh-vats/costrix.git"
+  },
+  "author": "Kaustubh Vats",
+  "keywords": [
+    "initializer",
+    "typescript",
+    "webpack",
+    "jest",
+    "cli"
+  ]
 }

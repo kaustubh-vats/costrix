@@ -46,7 +46,7 @@ module.exports = (_env, argv) => {
         patterns: [
           {
             from: "public",
-            to: "public",
+            to: "./",
             globOptions: {
               ignore: ["**/index.html"]
             }
